@@ -20,8 +20,8 @@ tables = soup.find_all("table")
 target_table = None
 for table in tables:
     # Find the previous sibling <h2> element of the table
-    h2_element = table.find_previous_sibling("h2")
-    if h2_element and h2_element.get_text() == "Active Codes":
+    title_element = table.find_previous_sibling("h2").find(id="Active_Codes")
+    if title_element and title_element.get_text() == "Active Codes":
         target_table = table
         break
 
